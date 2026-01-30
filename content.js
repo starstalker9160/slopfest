@@ -1,6 +1,6 @@
 const theDict = [
     { lie: "Microsoft", slopified: "Microslop" },
-    { lie: "ChatGTP", slopified: "SlopGPT" },
+    { lie: "ChatGPT", slopified: "SlopGPT" },
     { lie: "Copilot", slopified: "Slopilot" },
 ];
 
