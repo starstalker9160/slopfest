@@ -11,3 +11,7 @@
 
 ![how to enable dev mode](./repo%20stuff/instructions1.png)
 ![select folder](./repo%20stuff/instructions2.png)
+<br>
+
+## Demo
+![demo](./repo%20stuff/demo.png)
