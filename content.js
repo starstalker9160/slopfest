@@ -7,10 +7,10 @@ const theDict = [
     { lie: "AI generated", slopified: "AI slop" },
 ];
 
-// not case sensitive
-const rules = theDict.map(({ lie, slopified }) => ({ regex: new RegExp(lie, "g"), slopified }));
+// not case sensitive, ignores characters that are parts of words
+const rules = theDict.map(({ lie, slopified }) => ({ regex: new RegExp(`\\b${lie.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g'), slopified }));
 
-function isUserInput(node) {
+function isNotToBeTouched(node) {
     if (node.nodeType !== Node.ELEMENT_NODE) {
         node = node.parentElement;
     }
@@ -23,7 +23,7 @@ function isUserInput(node) {
 
 function replaceText(node) {
     // ignore user input fields
-    if (isUserInput(node)) return;
+    if (isNotToBeTouched(node)) return;
 
     if (node.nodeType === Node.TEXT_NODE) {
         let liesAndDecit = node.nodeValue;
